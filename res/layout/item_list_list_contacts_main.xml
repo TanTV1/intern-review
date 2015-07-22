@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp" >
+
+        <otherclass.v1.CircleImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="@dimen/image.size.width.avatar_list_contact"
+            android:layout_height="@dimen/image.size.height.avatar_list_contact"
+            android:layout_marginLeft="@dimen/activity.margin.left.list_contact"
+            android:layout_centerVertical="true"            
+            android:src="@drawable/img_lv_avatar_1" />
+
+        <TextView
+            android:id="@+id/tv_name_contact_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:layout_marginLeft="@dimen/activity.margin.left.avatar_to_name"
+            android:text="@string/textview.text.name_contact_items_1"
+            android:textSize="@dimen/textview.text.name_contact_items" />
+
+        <ImageView
+            android:id="@+id/imgBtnEdit"
+            android:layout_width="@dimen/image.size.width.btn"
+            android:layout_height="@dimen/image.size.heght.btn"
+            android:padding="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity.margin.right.list_contact"
+            android:src="@drawable/ic_list_contacts_btnedit" 
+        />
+        
+        <ImageView
+            android:id="@+id/imgBtnDelete"
+            android:layout_width="@dimen/image.size.width.btn"
+            android:layout_height="@dimen/image.size.heght.btn"
+            android:src="@drawable/ic_list_contacts_btndelete" 
+            android:background="#00000000"
+            android:padding="15dp"
+            android:scaleType="centerInside"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+        />
+    </RelativeLayout>
+
+</LinearLayout>
