@@ -1,13 +1,20 @@
 package listcontact.v1;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import asiantech.vn.v1.R;
+import customdialoglistcontact.v1.CustomDialog;
 
 /**
 * This is class ListContactActivity
@@ -33,7 +40,7 @@ public class ListContactActivity extends ActionBarActivity {
 	String namePerson[] = { //set values name of person
 			"Luke Skywalker Bell","Minions Stuart","Allison Janney","Jenifier Saunders","Hiroyuki Sanada","Dave Rosenbaum","Mesut Ozil","Alexis Sanchez","Theo Walcott"
 	};
-	
+	ImageView imgBtnBack;
 	/**
 	 * This is onCreate Method
 	 * The first function when activity starting, create a activity
@@ -46,12 +53,27 @@ public class ListContactActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		getSupportActionBar().hide();
 		setContentView(R.layout.activity_list_contacts_main);
-		lvListContact = (ListView)findViewById(R.id.lvListContacts); //find a view by ID
-		mListContacts = new ArrayList<>(); // create new object of ArrayList
-		addDataToArrayList(mListContacts); // set data to mListContacts		
-		mAdapterListContact = new ListContactAdapter(this,mListContacts); // new Object Adapter
-		lvListContact.setAdapter(mAdapterListContact); //set Adapter for ListView
-		
+		//find a view by ID
+		lvListContact = (ListView)findViewById(R.id.lvListContacts);
+		// create new object of ArrayList
+		mListContacts = new ArrayList<>(); 
+		// set data to mListContacts
+		addDataToArrayList(mListContacts); 		
+		// new Object Adapter
+		mAdapterListContact = new ListContactAdapter(this,mListContacts); 
+		//set Adapter for ListView
+		lvListContact.setAdapter(mAdapterListContact); 
+		//find id
+		imgBtnBack = (ImageView) findViewById(R.id.imgBtnBack);
+		imgBtnBack.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish(); //return activity
+			}
+		});
+	
 	}
 	
 	/**
@@ -68,5 +90,36 @@ public class ListContactActivity extends ActionBarActivity {
 			arrList.add(contactClass); //add object to ArrayList Class			
 		}
 	}
+	
+	/**
+	 * TODO oncreate custom dialog
+	 * @param dialogId;
+	 */
+	public Dialog onCreateDialog(int dialogId) {
+		Dialog dialog = null;
+		String icon = "drawable/dialog_icon";
+
+		CustomDialog.Builder customBuilder = new CustomDialog.Builder(
+				ListContactActivity.this);
+		customBuilder
+				.setMessage(
+						"Congratulation! You have successfully create a custom dialog. I hope you enjoy it.")
+				.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();;
+							}
+						})
+				.setPositiveButton("Confirm",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								
+							}
+						});
+		dialog = customBuilder.create();
+		return dialog;
+	}	
 	
 }

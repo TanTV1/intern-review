@@ -2,13 +2,21 @@ package listcontact.v1;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import asiantech.vn.v1.MainActivity;
 import asiantech.vn.v1.R;
 
 /**
@@ -26,15 +34,15 @@ import asiantech.vn.v1.R;
 public class ListContactAdapter extends BaseAdapter {
 	private ArrayList<ListContactClass> mListContacts; //declare ArrayList contains Object in ListContactClass 
 	private Context mContext; //declare context , use contain context of MainAcitity
-	
+		
 	/**	
 	 * TODO Constructor of ListContactAdapter
 	 * @param mListContacts
 	 * @param mAdapterListContact
 	 * @param mContext
+	 * @param mActivity
 	 */
-	public ListContactAdapter(Context mContext,
-			ArrayList<ListContactClass> mListContacts) {
+	public ListContactAdapter(Context mContext,ArrayList<ListContactClass> mListContacts) {
 		super();
 		this.mContext = mContext;
 		this.mListContacts = mListContacts;
@@ -103,6 +111,7 @@ public class ListContactAdapter extends BaseAdapter {
 		}
 		
 		setValues(holder,position); // call method set values
+		doActionButton(holder,position); //call medthod processing event click button
 		return convertView; //return view
 	}
 	
@@ -117,6 +126,70 @@ public class ListContactAdapter extends BaseAdapter {
 		//get values and set values for items lisview
 		holder.imgAvatar.setImageResource(mListContacts.get(position).getmIdAvatar());
 		holder.tvNamePerson.setText(mListContacts.get(position).getmName());
+	}
+	
+	/**
+	 * 
+	*TODO This medthod is processing event when you click button edit and delete
+	* @param holder
+	* @param position
+	* @return void
+	 */
+	private void doActionButton(ViewHolder holder,final int position){
+		holder.imgBtnEdit.setOnClickListener(new OnClickListener() { //Button Edit Event
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Toast.makeText(mContext, "Clicked button Edit", Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		holder.imgBtnDelete.setOnClickListener(new OnClickListener() { //Button Delete Event
+			
+			@Override
+			public void onClick(View v) {
+				showDialog(position);
+				
+			}
+		});
+	}
+	
+	/**
+	 * 
+	*TODO display dialog Are you sure delete a contact
+	* @param position
+	* @return 
+	*/
+	public void showDialog(final int position){
+		AlertDialog.Builder alert = new Builder(mContext);
+		alert.setMessage(
+				"Are you sure want to delete "+mListContacts.get(position).getmName())
+				.setPositiveButton("OK",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								mListContacts.remove(position); //remove a object from arraylist
+								Toast.makeText(mContext, "You delete a contact successful !" ,Toast.LENGTH_SHORT).show();
+								notifyDataSetChanged();
+							}
+						})
+				.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+							}
+						});
+		//Create alert dialog
+		AlertDialog dialog = alert.create();
+		//show dialog
+		dialog.show();
+		WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+		//opacity dialog
+		params.alpha = 0.6f;
+		dialog.getWindow().setAttributes(params);
+            	
 	}
 	
 }

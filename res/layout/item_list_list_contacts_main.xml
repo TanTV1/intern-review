@@ -42,7 +42,7 @@
             android:layout_width="@dimen/image.size.width.btn"
             android:layout_height="@dimen/image.size.heght.btn"
             android:src="@drawable/ic_list_contacts_btndelete" 
-            android:background="#00000000"
+            android:background="@color/color.nocolor"
             android:padding="15dp"
             android:scaleType="centerInside"
             android:layout_centerVertical="true"
