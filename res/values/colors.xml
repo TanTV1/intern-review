@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color.red">#ff0000</color>
+    <color name="color.green">#00ff00</color>
+    <color name="color.blue">#0000ff</color>
+    <color name="color.black">#000000</color>
+    <color name="color.white">#ffffff</color>
+    <color name="color.grey">#383838</color>
+    <color name="color.yellow">#ffff00</color>
+    <color name="color.nocolor">#00000000</color>
+    <color name="color.bg_menubar_list_contact">#00bbd2</color>
+   
+
+</resources>
