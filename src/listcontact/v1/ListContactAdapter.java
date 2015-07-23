@@ -145,11 +145,11 @@ public class ListContactAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				Toast.makeText(mContext, "Clicked button Edit", Toast.LENGTH_SHORT).show();
 				//add new fragment Edit contact				 
-				MainActivity.fragment.add(new EditContactFragment(mListContacts.get(position).getmIdAvatar(),mListContacts.get(position).getmName(),position));
+				MainActivity.sFragment.add(new EditContactFragment(mListContacts.get(position).getmIdAvatar(),mListContacts.get(position).getmName(),position));
 				//add update fragment
-				MainActivity.adapterFragment.notifyDataSetChanged();
+				MainActivity.sAdapterFragment.notifyDataSetChanged();
 				//show fragment edit contact
-				MainActivity.viewPager.setCurrentItem(1);				
+				MainActivity.sViewPager.setCurrentItem(1);				
 			}
 		});
 		

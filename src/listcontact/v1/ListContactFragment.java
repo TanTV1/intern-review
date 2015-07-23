@@ -31,19 +31,16 @@ import asiantech.vn.v1.R;
 
 public class ListContactFragment extends Fragment {
 	private ArrayList<ListContactClass> mListContacts; //declare ArrayList contains Object in ListContactClass 
-	private ListContactAdapter mAdapterListContact; //declare object adapter of ListContactAdapter
-	
+	private ListContactAdapter mAdapterListContact; //declare object adapter of ListContactAdapter	
 	//Declare some field relation
-	ListView lvListContact; //declare list view
-	int idName[] = { //set values id name
+	private ListView lvListContact; //declare list view
+	private int idName[] = { //set values id name
 				R.drawable.img_lv_avatar_1,R.drawable.img_lv_avatar_2,R.drawable.img_lv_avatar_3,R.drawable.img_lv_avatar_4,R.drawable.img_lv_avatar_5,R.drawable.img_lv_avatar_6,R.drawable.img_lv_avatar_7,R.drawable.img_lv_avatar_8,R.drawable.img_lv_avatar_9
 	};
-	String namePerson[] = { //set values name of person
+	private String namePerson[] = { //set values name of person
 			"Luke Skywalker Bell","Minions Stuart","Allison Janney","Jenifier Saunders","Hiroyuki Sanada","Dave Rosenbaum","Mesut Ozil","Alexis Sanchez","Theo Walcott"
 	};
-	View view; //return view
-	
-	
+		
 	/**
 	 * This is onCreate Method
 	 * The first function when fragment starting
@@ -55,7 +52,8 @@ public class ListContactFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_list_contact, container,
+		//return view 
+		View view = inflater.inflate(R.layout.fragment_list_contact, container,
 				false);
 		//create new arraylist
 		mListContacts = new ArrayList<>();

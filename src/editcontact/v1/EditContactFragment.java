@@ -23,14 +23,14 @@ import asiantech.vn.v1.R;
 * 22-July-2015 TanTV			Description of modification
 */
 public class EditContactFragment extends Fragment {
-	View view; //return view for display
-	ImageView imgAvatar; //avatar person
-	TextView tvName; // name person	
-	EditText edtName; //Edittext name
-	EditText edtDescription; // Edittext description	
-	int idAvatar; //ID images
-	String namePerson; // Name Person
-	int position; // Position in listview
+	private View mView; //return view for display
+	private ImageView mImgAvatar; //avatar person
+	private TextView mTvName; // name person	
+	private EditText mEdtName; //Edittext name
+	private EditText mEdtDescription; // Edittext description	
+	private int mIdAvatar; //ID images
+	private String mNamePerson; // Name Person
+	private int mPosition; // Position in listview
 	
 	/**
 	 * TODO constructor EditContactFragment
@@ -41,9 +41,9 @@ public class EditContactFragment extends Fragment {
 	 */
 	public EditContactFragment(int idAvatar, String namePerson, int position) {
 		super();
-		this.idAvatar = idAvatar;
-		this.namePerson = namePerson;
-		this.position = position;
+		this.mIdAvatar = idAvatar;
+		this.mNamePerson = namePerson;
+		this.mPosition = position;
 	}
 
 	/**
@@ -57,19 +57,19 @@ public class EditContactFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_edit_contact, container,false);		
-		Toast.makeText(view.getContext(), "edit", Toast.LENGTH_SHORT).show();
+		mView = inflater.inflate(R.layout.fragment_edit_contact, container,false);		
+		Toast.makeText(mView.getContext(), "edit", Toast.LENGTH_SHORT).show();
 		//find id for avatar and id textview name
-		imgAvatar = (ImageView)view.findViewById(R.id.imgAvatar);
-		tvName = (TextView)view.findViewById(R.id.tvName);
+		mImgAvatar = (ImageView)mView.findViewById(R.id.imgAvatar);
+		mTvName = (TextView)mView.findViewById(R.id.tvName);
 		//find id edit text
-		edtName = (EditText)view.findViewById(R.id.edtName);
-		edtDescription = (EditText)view.findViewById(R.id.edtDescription);
+		mEdtName = (EditText)mView.findViewById(R.id.edtName);
+		mEdtDescription = (EditText)mView.findViewById(R.id.edtDescription);
 		//set image and text for it
-		imgAvatar.setImageResource(idAvatar);
-		tvName.setText(namePerson);
-		edtName.setText(namePerson);		
-		return view;
+		mImgAvatar.setImageResource(mIdAvatar);
+		mTvName.setText(mNamePerson);
+		mEdtName.setText(mNamePerson);		
+		return mView;
 	}
  
 }

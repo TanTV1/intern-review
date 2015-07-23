@@ -18,7 +18,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 * 22-July-2015 TanTV			Description of modification
 */
 public class CustomAdapterFragment extends FragmentStatePagerAdapter {
-	ArrayList<Fragment> fragment; //ArrayList fragment from ActivityMain
+	private ArrayList<Fragment> mFragment; //ArrayList fragment from ActivityMain
 
 	/**
 	 * TODO method constructor CustomAdapterFragment
@@ -27,7 +27,7 @@ public class CustomAdapterFragment extends FragmentStatePagerAdapter {
 	 */
 	public CustomAdapterFragment(android.support.v4.app.FragmentManager fm,ArrayList<Fragment> fragment) {
 		super(fm);
-		this.fragment = fragment;
+		this.mFragment = fragment;
 	}
 
 	/**
@@ -38,8 +38,8 @@ public class CustomAdapterFragment extends FragmentStatePagerAdapter {
 	@Override
 	public Fragment getItem(int possition) {
 		// TODO Auto-generated method stub
-		for (int i=0;i<fragment.size();i++){
-			if (possition==i) return fragment.get(i);
+		for (int i=0;i<mFragment.size();i++){
+			if (possition==i) return mFragment.get(i);
 		}
 			
 		return null;
@@ -53,7 +53,7 @@ public class CustomAdapterFragment extends FragmentStatePagerAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return fragment.size();
+		return mFragment.size();
 	}
 
 }

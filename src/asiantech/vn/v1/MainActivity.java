@@ -29,10 +29,10 @@ import editcontact.v1.EditContactFragment;
 * 22-July-2015 TanTV			Description of modification
 */
 public class MainActivity extends FragmentActivity{	
-	public static ArrayList<Fragment> fragment; //declare arraylist contains fragment
-	public static ViewPager viewPager; //declare viewpaper
-	public static CustomAdapterFragment adapterFragment;	
-	ImageView imgBtnBack; //ImageView button black
+	public static ArrayList<Fragment> sFragment; //declare arraylist contains fragment
+	public static ViewPager sViewPager; //declare viewpaper
+	public static CustomAdapterFragment sAdapterFragment;	
+	private ImageView mImgBtnBack; //ImageView button black
 	
 	/**
 	 * This is onCreate Method
@@ -46,19 +46,19 @@ public class MainActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_contacts_main);
 		//new ArrayList fragment
-		fragment = new ArrayList<Fragment>();
+		sFragment = new ArrayList<Fragment>();
 		//add fragment to array list
-		fragment.add(new ListContactFragment());
+		sFragment.add(new ListContactFragment());
 		//get support fragment manager
-		adapterFragment = new CustomAdapterFragment(
-				getSupportFragmentManager(), fragment);
-		viewPager = (ViewPager) findViewById(R.id.viewpagerFragment);
-		viewPager.setAdapter(adapterFragment);
-		viewPager.setCurrentItem(0);
+		sAdapterFragment = new CustomAdapterFragment(
+				getSupportFragmentManager(), sFragment);
+		sViewPager = (ViewPager) findViewById(R.id.viewpagerFragment);
+		sViewPager.setAdapter(sAdapterFragment);
+		sViewPager.setCurrentItem(0);
 		
 		//find id button Back
-		imgBtnBack = (ImageView) findViewById(R.id.imgBtnBack);
-		imgBtnBack.setOnClickListener(new OnClickListener() {
+		mImgBtnBack = (ImageView) findViewById(R.id.imgBtnBack);
+		mImgBtnBack.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
