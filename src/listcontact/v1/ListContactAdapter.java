@@ -2,11 +2,12 @@ package listcontact.v1;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,8 +17,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import asiantech.vn.v1.CustomAdapterFragment;
 import asiantech.vn.v1.MainActivity;
 import asiantech.vn.v1.R;
+import editcontact.v1.EditContactFragment;
 
 /**
 * This is class ListContactAdapter
@@ -34,18 +37,17 @@ import asiantech.vn.v1.R;
 public class ListContactAdapter extends BaseAdapter {
 	private ArrayList<ListContactClass> mListContacts; //declare ArrayList contains Object in ListContactClass 
 	private Context mContext; //declare context , use contain context of MainAcitity
-		
-	/**	
-	 * TODO Constructor of ListContactAdapter
+
+	/**
+	 * TODO method constructor
 	 * @param mListContacts
-	 * @param mAdapterListContact
 	 * @param mContext
-	 * @param mActivity
 	 */
-	public ListContactAdapter(Context mContext,ArrayList<ListContactClass> mListContacts) {
+	public ListContactAdapter(ArrayList<ListContactClass> mListContacts,
+			Context mContext) {
 		super();
-		this.mContext = mContext;
 		this.mListContacts = mListContacts;
+		this.mContext = mContext;
 	}
 
 	/**
@@ -136,23 +138,30 @@ public class ListContactAdapter extends BaseAdapter {
 	* @return void
 	 */
 	private void doActionButton(ViewHolder holder,final int position){
+		//button edit
 		holder.imgBtnEdit.setOnClickListener(new OnClickListener() { //Button Edit Event
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Toast.makeText(mContext, "Clicked button Edit", Toast.LENGTH_SHORT).show();
+				//add new fragment Edit contact				 
+				MainActivity.fragment.add(new EditContactFragment(mListContacts.get(position).getmIdAvatar(),mListContacts.get(position).getmName(),position));
+				//add update fragment
+				MainActivity.adapterFragment.notifyDataSetChanged();
+				//show fragment edit contact
+				MainActivity.viewPager.setCurrentItem(1);				
 			}
 		});
 		
+		//button delete
 		holder.imgBtnDelete.setOnClickListener(new OnClickListener() { //Button Delete Event
 			
 			@Override
 			public void onClick(View v) {
-				showDialog(position);
-				
+				showDialog(position);	//call method show dialog			
 			}
-		});
+		});		
+		
 	}
 	
 	/**

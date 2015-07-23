@@ -17,19 +17,19 @@
             android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="listcontact.v1.ListContactActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="customdialoglistcontact.v1.CustomDialogActivity"
+            android:name="listcontact.v1.ListContactFragment"
+            android:label="@string/app_name" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="editcontacty.v1.EditContactFragment"
             android:label="@string/app_name" >
             <intent-filter>
             </intent-filter>

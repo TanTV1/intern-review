@@ -8,6 +8,7 @@
     <dimen name="activity.margin.left.avatar_to_name">21dp</dimen>
     <dimen name="textview.text.title_activity_main">26dp</dimen>
     <dimen name="textview.text.name_contact_items">16dp</dimen>
+    <dimen name="textview.text.button">20dp</dimen>
     <dimen name="image.size.width.avatar_list_contact">47dp</dimen>
     <dimen name="image.size.height.avatar_list_contact">47dp</dimen>
     <dimen name="image.size.width.btn">50dp</dimen>

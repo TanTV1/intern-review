@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/rlTop"
         android:layout_width="fill_parent"
         android:layout_height="52dp"
         android:background="@color/color.bg_menubar_list_contact" >
@@ -18,6 +19,7 @@
             android:src="@drawable/ic_list_contacts_btnback" />
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -26,12 +28,10 @@
             android:textSize="@dimen/textview.text.title_activity_main" />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/lvListContacts"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpagerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusable="true"
-         >
-    </ListView>
+        android:layout_below="@+id/rlTop" />
 
-</LinearLayout>
+</RelativeLayout>
