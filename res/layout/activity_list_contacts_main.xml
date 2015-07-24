@@ -28,8 +28,13 @@
             android:textSize="@dimen/textview.text.title_activity_main" />
     </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpagerFragment"
+    <FrameLayout
+        android:id="@+id/frFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlTop" />
+        <FrameLayout
+        android:id="@+id/viewpagerFragment1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/rlTop" />

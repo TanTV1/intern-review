@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="78dp" >
 
-        <otherclass.v1.CircleImageView
+        <asiantech.vn.otherclass.CircleImageView
             android:id="@+id/imgAvatar"
             android:layout_width="@dimen/image.size.width.avatar_list_contact"
             android:layout_height="@dimen/image.size.height.avatar_list_contact"
@@ -30,7 +30,7 @@
             android:id="@+id/imgBtnEdit"
             android:layout_width="@dimen/image.size.width.btn"
             android:layout_height="@dimen/image.size.heght.btn"
-            android:padding="15dp"
+            android:padding="10dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/activity.margin.right.list_contact"
@@ -43,7 +43,7 @@
             android:layout_height="@dimen/image.size.heght.btn"
             android:src="@drawable/ic_list_contacts_btndelete" 
             android:background="@color/color.nocolor"
-            android:padding="15dp"
+            android:padding="10dp"
             android:scaleType="centerInside"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"

@@ -4,14 +4,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity.margin.left.list_contact">22dp</dimen>
-    <dimen name="activity.margin.right.list_contact">52dp</dimen>
+    <dimen name="activity.margin.right.list_contact">40dp</dimen>
     <dimen name="activity.margin.left.avatar_to_name">21dp</dimen>
     <dimen name="textview.text.title_activity_main">26dp</dimen>
     <dimen name="textview.text.name_contact_items">16dp</dimen>
     <dimen name="textview.text.button">20dp</dimen>
     <dimen name="image.size.width.avatar_list_contact">47dp</dimen>
     <dimen name="image.size.height.avatar_list_contact">47dp</dimen>
-    <dimen name="image.size.width.btn">50dp</dimen>
-    <dimen name="image.size.heght.btn">50dp</dimen>
+    <dimen name="image.size.width.btn">40dp</dimen>
+    <dimen name="image.size.heght.btn">40dp</dimen>
 
 </resources>

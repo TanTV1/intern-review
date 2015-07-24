@@ -1,4 +1,4 @@
-package otherclass.v1;
+package asiantech.vn.otherclass;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -20,7 +20,6 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import asiantech.vn.v1.R;
-import asiantech.vn.v1.R.styleable;
 
 public class CircleImageView extends ImageView {
 

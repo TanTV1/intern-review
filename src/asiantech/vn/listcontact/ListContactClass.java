@@ -1,4 +1,6 @@
-package listcontact.v1;
+package asiantech.vn.listcontact;
+
+import java.io.Serializable;
 
 
 /**
@@ -13,13 +15,14 @@ package listcontact.v1;
 * 22-July-2015 TanTV			Description of modification
 */
 
-public class ListContactClass {
+public class ListContactClass implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int mIdAvatar; // variable use contain id of image in items listivew
-	private String mName;  // variable use contain name of person in list contact
-	
-	
+	private String mName; // variable use contain name of person in list contact
+
 	/**
 	 * TODO Contrustor of ListContactClass
+	 * 
 	 * @param mIdAvatar
 	 * @param mName
 	 */
@@ -30,41 +33,45 @@ public class ListContactClass {
 	}
 
 	/**
-	* 
-	*TODO get value in ID Avatar Images
-	* @return int	
-	*/
+	 * 
+	 * TODO get value in ID Avatar Images
+	 * 
+	 * @return int
+	 */
 	public int getmIdAvatar() {
 		return mIdAvatar;
 	}
-	
+
 	/**
-	* 
-	*TODO set value in ID Avatar Images
-	* @return void
-	* @param mIdAvatar	
-	*/
+	 * 
+	 * TODO set value in ID Avatar Images
+	 * 
+	 * @return void
+	 * @param mIdAvatar
+	 */
 	public void setmIdAvatar(int mIdAvatar) {
 		this.mIdAvatar = mIdAvatar;
 	}
-	
+
 	/**
-	* 
-	*TODO get name of Person in List Contact 
-	*@return void
-	*/
+	 * 
+	 * TODO get name of Person in List Contact
+	 * 
+	 * @return void
+	 */
 	public String getmName() {
 		return mName;
 	}
-	
+
 	/**
-	* 
-	*TODO set name for items in listview  
-	*@return void
-	*@param mName	
-	*/
+	 * 
+	 * TODO set name for items in listview
+	 * 
+	 * @return void
+	 * @param mName
+	 */
 	public void setmName(String mName) {
 		this.mName = mName;
 	}
-	
+
 }

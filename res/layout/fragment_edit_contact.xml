@@ -19,7 +19,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="127dp" >
 
-                <ImageView
+                <asiantech.vn.otherclass.CircleImageView
                     android:id="@+id/imgAvatar"
                     android:layout_width="94dp"
                     android:layout_height="94dp"
