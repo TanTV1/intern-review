@@ -30,10 +30,10 @@
             android:id="@+id/imgBtnEdit"
             android:layout_width="@dimen/image.size.width.btn"
             android:layout_height="@dimen/image.size.heght.btn"
-            android:padding="10dp"
+            android:padding="5dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/activity.margin.right.list_contact"
+            android:layout_marginRight="35dp"
             android:src="@drawable/ic_list_contacts_btnedit" 
         />
         
@@ -43,7 +43,8 @@
             android:layout_height="@dimen/image.size.heght.btn"
             android:src="@drawable/ic_list_contacts_btndelete" 
             android:background="@color/color.nocolor"
-            android:padding="10dp"
+            android:padding="5dp"
+            android:layout_marginRight="5dp"
             android:scaleType="centerInside"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"

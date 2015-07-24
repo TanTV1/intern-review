@@ -3,10 +3,12 @@ package asiantech.vn.main;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import asiantech.vn.editcontact.EditContactFragment;
 import asiantech.vn.listcontact.ListContactClass;
 import asiantech.vn.listcontact.ListContactFragment;
@@ -64,11 +66,7 @@ public class MainActivity extends FragmentActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// if stack == 1 exit else return main screen
-				if (sFragmentManager.getBackStackEntryCount() == 1) {
-					onBackPressed(); // exit application
-				} else
-					sFragmentManager.popBackStackImmediate(); // return and pop
-																// stack
+				onBackPressed();
 			}
 		});
 	}
@@ -76,8 +74,12 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		super.onBackPressed();
 		ListContactFragment.sAdapterListContact.notifyDataSetChanged();
+		if (sFragmentManager.getBackStackEntryCount() == 1) {
+			super.onBackPressed(); // exit application
+		} else
+			sFragmentManager.popBackStackImmediate(); // return and pop stack
+		
 	}
 
 	/**
@@ -97,5 +99,6 @@ public class MainActivity extends FragmentActivity {
 		sFragmentTransaction.addToBackStack(null);
 		sFragmentTransaction.commit();
 	}
+
 
 }

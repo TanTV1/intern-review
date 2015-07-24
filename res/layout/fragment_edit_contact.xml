@@ -58,6 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
+                    android:maxLength="23"
                     android:layout_marginLeft="@dimen/activity.margin.left.list_contact"
                     android:background="#f9f9f9" />
             </RelativeLayout>

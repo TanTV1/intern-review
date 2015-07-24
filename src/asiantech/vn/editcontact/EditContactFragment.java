@@ -92,8 +92,8 @@ public class EditContactFragment extends Fragment {
 				// TODO Auto-generated method stub
 				final String edtName = mEdtName.getText()+"";
 				final String edtDescription = mEdtDescription.getText()+"";			
-				ListContactFragment.mListContacts.get(mPosition).setmName(edtName);
-				ListContactFragment.mListContacts.get(mPosition).setmEdtDescription(edtDescription);
+				ListContactFragment.sListContacts.get(mPosition).setmName(edtName);
+				ListContactFragment.sListContacts.get(mPosition).setmEdtDescription(edtDescription);
 				MainActivity.sFragmentManager.popBackStackImmediate();
 				
 				Toast.makeText(mView.getContext(), "Save Succesfull !" ,Toast.LENGTH_SHORT).show();

@@ -11,7 +11,7 @@
     <dimen name="textview.text.button">20dp</dimen>
     <dimen name="image.size.width.avatar_list_contact">47dp</dimen>
     <dimen name="image.size.height.avatar_list_contact">47dp</dimen>
-    <dimen name="image.size.width.btn">40dp</dimen>
-    <dimen name="image.size.heght.btn">40dp</dimen>
+    <dimen name="image.size.width.btn">30dp</dimen>
+    <dimen name="image.size.heght.btn">30dp</dimen>
 
 </resources>
