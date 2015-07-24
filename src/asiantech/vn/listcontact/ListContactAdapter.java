@@ -31,11 +31,8 @@ import asiantech.vn.v1.R;
 */
 
 public class ListContactAdapter extends BaseAdapter {
-	private ArrayList<ListContactClass> mListContacts; // declare ArrayList
-														// contains Object in
-														// ListContactClass
-	private Context mContext; // declare context , use contain context of
-								// MainAcitity
+	private ArrayList<ListContactClass> mListContacts; // declare ArrayList contains Object in ListContactClass
+	private Context mContext; // declare context , use contain context of MainAcitity
 
 	/**
 	 * TODO method constructor
@@ -43,8 +40,7 @@ public class ListContactAdapter extends BaseAdapter {
 	 * @param mListContacts
 	 * @param mContext
 	 */
-	public ListContactAdapter(ArrayList<ListContactClass> mListContacts,
-			Context mContext) {
+	public ListContactAdapter(ArrayList<ListContactClass> mListContacts,Context mContext) {
 		super();
 		this.mListContacts = mListContacts;
 		this.mContext = mContext;
@@ -100,33 +96,21 @@ public class ListContactAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		ViewHolder holder; // declare object of Class ViewHolder
 		if (convertView == null) { // it calls when item listview not scroll
-			convertView = LayoutInflater.from(mContext).inflate(
-					R.layout.item_list_list_contacts_main, parent, false); // set
-																			// layout
-																			// custom
-																			// item
-																			// listview
+			convertView = LayoutInflater.from(mContext).inflate(R.layout.item_list_list_contacts_main, parent, false); // set layout custom
 			holder = new ViewHolder(); // creare new object ViewHolder
 			// return ID for child view
-			holder.imgAvatar = (ImageView) convertView
-					.findViewById(R.id.imgAvatar);
-			holder.tvNamePerson = (TextView) convertView
-					.findViewById(R.id.tv_name_contact_items);
-			holder.imgBtnEdit = (ImageView) convertView
-					.findViewById(R.id.imgBtnEdit);
-			holder.imgBtnDelete = (ImageView) convertView
-					.findViewById(R.id.imgBtnDelete);
+			holder.imgAvatar = (ImageView) convertView.findViewById(R.id.imgAvatar);
+			holder.tvNamePerson = (TextView) convertView.findViewById(R.id.tv_name_contact_items);
+			holder.imgBtnEdit = (ImageView) convertView.findViewById(R.id.imgBtnEdit);
+			holder.imgBtnDelete = (ImageView) convertView.findViewById(R.id.imgBtnDelete);
 			//
 			convertView.setTag(holder); // set tag holder
 		} else {
-			holder = (ViewHolder) convertView.getTag(); // if holder is
-														// available , it calls
-														// function getTag()
+			holder = (ViewHolder) convertView.getTag(); // if holder is available , it calls to function getTag()
 		}
 
 		setValues(holder, position); // call method set values
-		doActionButton(holder, position); // call medthod processing event click
-											// button
+		doActionButton(holder, position); // call medthod processing event click button
 		return convertView; // return view
 	}
 
@@ -147,8 +131,7 @@ public class ListContactAdapter extends BaseAdapter {
 
 	/**
 	 * 
-	 * TODO This medthod is processing event when you click button edit and
-	 * delete
+	 * TODO This medthod is processing event when you click button edit and delete
 	 * 
 	 * @param holder
 	 * @param position
@@ -166,11 +149,7 @@ public class ListContactAdapter extends BaseAdapter {
 								Toast.LENGTH_SHORT).show();
 						// Call method static from MainActivity
 						// Send data using bundle
-						MainActivity
-								.showFragmentEditContact(new ListContactClass(
-										mListContacts.get(position)
-												.getmIdAvatar(), mListContacts
-												.get(position).getmName()));
+						MainActivity.showFragmentEditContact(new ListContactClass(position,mListContacts));
 					}
 				});
 

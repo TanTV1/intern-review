@@ -1,6 +1,7 @@
 package asiantech.vn.listcontact;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 
 /**
@@ -17,8 +18,24 @@ import java.io.Serializable;
 
 public class ListContactClass implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int mIdAvatar; // variable use contain id of image in items listivew
-	private String mName; // variable use contain name of person in list contact
+	private int mIdAvatar; // id of images in items listview
+	private String mName; // name of person in items listview
+	private int mPositon; // position in items listview
+	private String mEdtDescription; //description a contact
+	private ArrayList<ListContactClass> mListContacts;
+	
+	/**
+	 * TODO Contrustor of ListContactClass
+	 * 
+	 * @param positon
+	 * @param mListContacts
+	 */
+	public ListContactClass(int positon,ArrayList<ListContactClass> mListContacts) {
+		super();
+		this.mPositon = positon;
+		this.mListContacts = mListContacts;
+	}
+		
 
 	/**
 	 * TODO Contrustor of ListContactClass
@@ -31,7 +48,8 @@ public class ListContactClass implements Serializable {
 		this.mIdAvatar = mIdAvatar;
 		this.mName = mName;
 	}
-
+	
+	
 	/**
 	 * 
 	 * TODO get value in ID Avatar Images
@@ -73,5 +91,68 @@ public class ListContactClass implements Serializable {
 	public void setmName(String mName) {
 		this.mName = mName;
 	}
+	/**
+	 * 
+	* TODO get position method
+	* @return
+	*
+	*/
+	public int getPositon() {
+		return mPositon;
+	}
+	/**
+	 * 
+	* TODO get position method
+	* @param positon
+	*
+	*/
+	public void setPositon(int positon) {
+		this.mPositon = positon;
+	}
+
+	/**
+	 * 
+	 * TODO get ArrayList mListContact
+	 * 
+	 * @return ArrayList
+	 */
+	public ArrayList<ListContactClass> getmListContacts() {
+		return mListContacts;
+	}
+
+	/**
+	 * 
+	 * TODO set arraylist
+	 * 
+	 * @param mListContacts
+	 */
+	public void setmListContacts(ArrayList<ListContactClass> mListContacts) {
+		this.mListContacts = mListContacts;
+	}
+
+
+	/**
+	 * 
+	 * TODO get String decription
+	 * 
+	 * @return String
+	 */
+	public String getmEdtDescription() {
+		return mEdtDescription;
+	}
+
+
+	/**
+	 * 
+	 * TODO set decription
+	 * 
+	 * @param String
+	 * 
+	 */
+	public void setmEdtDescription(String mEdtDescription) {
+		this.mEdtDescription = mEdtDescription;
+	}
+	
+	
 
 }

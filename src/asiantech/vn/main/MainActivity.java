@@ -43,8 +43,7 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_list_contacts_main);
 		sFragmentManager = getFragmentManager();
 		sFragmentTransaction = sFragmentManager.beginTransaction();
-		sFragmentTransaction
-				.replace(R.id.frFragment, new ListContactFragment());
+		sFragmentTransaction.replace(R.id.frFragment, new ListContactFragment());
 		sFragmentTransaction.addToBackStack(null);
 		sFragmentTransaction.commit();
 		setOnEvent();
@@ -78,6 +77,7 @@ public class MainActivity extends FragmentActivity {
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
+		ListContactFragment.sAdapterListContact.notifyDataSetChanged();
 	}
 
 	/**
@@ -88,12 +88,12 @@ public class MainActivity extends FragmentActivity {
 	 * @return
 	 */
 	public static void showFragmentEditContact(ListContactClass listContact) {
-		EditContactFragment fragmentListContact = new EditContactFragment();
+		EditContactFragment fragmentEditContact = new EditContactFragment();
 		Bundle bundle = new Bundle();
 		bundle.putSerializable("objectListContact", listContact);
-		fragmentListContact.setArguments(bundle);
+		fragmentEditContact.setArguments(bundle);
 		sFragmentTransaction = sFragmentManager.beginTransaction();
-		sFragmentTransaction.replace(R.id.frFragment, fragmentListContact);
+		sFragmentTransaction.replace(R.id.frFragment, fragmentEditContact);
 		sFragmentTransaction.addToBackStack(null);
 		sFragmentTransaction.commit();
 	}
