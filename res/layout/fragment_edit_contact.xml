@@ -106,7 +106,7 @@
                 <EditText
                     android:id="@+id/edtDescription"
                     android:layout_width="match_parent"
-                    android:gravity="top"
+                    android:gravity="center_vertical"
                     android:hint="@string/textview.text.please_input_decription"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/activity.margin.left.list_contact"
@@ -136,6 +136,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/selector_btn_save"
             android:text="@string/button.text.Save"
             android:textColor="#007aff"
             android:textSize="@dimen/textview.text.name_contact_items" />
@@ -151,6 +152,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/selector_btn_cancel"
             android:text="@string/button.text.Cancel"
             android:textColor="#007aff"
             android:textSize="@dimen/textview.text.name_contact_items" />

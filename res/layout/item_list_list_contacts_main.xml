@@ -34,15 +34,16 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="35dp"
-            android:src="@drawable/ic_list_contacts_btnedit" 
+            android:background="@color/color.nocolor"
+            android:src="@drawable/selector_btn_edit" 
         />
         
         <ImageView
             android:id="@+id/imgBtnDelete"
             android:layout_width="@dimen/image.size.width.btn"
             android:layout_height="@dimen/image.size.heght.btn"
-            android:src="@drawable/ic_list_contacts_btndelete" 
-            android:background="@color/color.nocolor"
+            android:background="@color/color.nocolor" 
+            android:src="@drawable/selector_btn_delete"
             android:padding="5dp"
             android:layout_marginRight="5dp"
             android:scaleType="centerInside"

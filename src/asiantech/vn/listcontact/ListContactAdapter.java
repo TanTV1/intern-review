@@ -139,10 +139,8 @@ public class ListContactAdapter extends BaseAdapter {
 	 */
 	private void doActionButton(ViewHolder holder, final int position) {
 		// button edit
-		holder.imgBtnEdit.setOnClickListener(new OnClickListener() { // Button
-																		// Edit
-																		// Event
-
+		
+		holder.imgBtnEdit.setOnClickListener(new OnClickListener() { // Button Edit Event
 					@Override
 					public void onClick(View v) {
 						Toast.makeText(mContext, "Clicked button Edit",

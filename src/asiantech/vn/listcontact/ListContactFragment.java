@@ -2,15 +2,12 @@ package asiantech.vn.listcontact;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
@@ -34,12 +31,11 @@ import asiantech.vn.v1.R;
 public class ListContactFragment extends Fragment {
 	public static ArrayList<ListContactClass> sListContacts = new ArrayList<>(); // declare ArrayList contains Object in ListContactClass
 	public static ListContactAdapter sAdapterListContact; // declare object adapter of ListContactAdapter
-	private ListView lvListContact; // declare list view
-	public static boolean sCheckUpdate; //declare check arraylist 
-	private View mView;
+	private ListView mLvListContact; // declare list view
+	private static boolean sCheckUpdate; //declare check arraylist 
+	public static View mView;
 	public static ProgressBar sProgressBar; //declare progress bar
-	
-
+	private int mPreLast; // variable hold previous position 
 	/**
 	 * @TODO This is onCreate Method The first function when fragment starting
 	 * 
@@ -56,67 +52,61 @@ public class ListContactFragment extends Fragment {
 				false);
 		// add Data to arraylist 
 		if (!sCheckUpdate){
-			addDataToArrayList(sListContacts);
+			ApplicationData.addDataToArrayList(sListContacts);
 			sCheckUpdate = true;
 		}
 		// new adapter list contact
 		sAdapterListContact = new ListContactAdapter(sListContacts,mView.getContext());
 		// find id list view and set adapter to it
-		lvListContact = (ListView) mView.findViewById(R.id.lvListContact);
-		lvListContact.setAdapter(sAdapterListContact);
+		mLvListContact = (ListView) mView.findViewById(R.id.lvListContact);
+		mLvListContact.setAdapter(sAdapterListContact);
 		Toast.makeText(mView.getContext(), "ListContacts", Toast.LENGTH_SHORT).show();
 		//call method hide keyboard
-		hide_keyboard_from(mView.getContext(), mView);
+		ApplicationData.hide_keyboard_from(mView.getContext(), mView);
 		setLoadingMore(inflater);
 		return mView;
 	}
 
-	/**
-	 * 
-	 * TODO add Data to ArrayList
-	 * 
-	 * @param arrList
-	 * 
-	 */
-	public static void addDataToArrayList(ArrayList<ListContactClass> arrList) {
-		ListContactClass contactClass;
-		for (int i = 0; i < ApplicationData.namePerson.length; i++) { // add data id and name from array to ArrayList
-			contactClass = new ListContactClass(ApplicationData.idName[i], ApplicationData.namePerson[i]);
-			arrList.add(contactClass); // add object to ArrayList Class
-		}
-	}
+
 	
 	/**
 	 * 
-	 * TODO Method Hide Keyboard
-	 * 
-	 * @param context
-	 * @param view
-	 */
-	public static void hide_keyboard_from(Context context, View view) {
-	    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
-	    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-	}
-	
+	*TODO set Layout and Event Scroll Items in ListView
+	* @param inflater
+	* @return void
+	*
+	*/
 	private void setLoadingMore(LayoutInflater inflater){
+		//declare footer view
 		View footer = inflater.inflate(R.layout.progress_bar_footer, null);
 		sProgressBar = (ProgressBar) footer.findViewById(R.id.progressBar);
-		lvListContact.addFooterView(footer);
-		lvListContact.setOnScrollListener(new OnScrollListener() {
+		// add view to listview
+		mLvListContact.addFooterView(footer);
+		//Event scroll items in listview
+		mLvListContact.setOnScrollListener(new OnScrollListener() {
 			
 			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState) {
-				//starting AsyncTask				
-				new LoadingMoreListView().execute();
+			public void onScroll(AbsListView view, int firstVisibleItem,int visibleItemCount, int totalItemCount) {
+				switch (view.getId()) {
+				case R.id.lvListContact:
+					final int lastItem = firstVisibleItem + visibleItemCount;
+					if(lastItem == totalItemCount) {
+			              if(mPreLast!=lastItem){ //to avoid multiple calls for last item
+			            	new LoadingMoreListView().execute(); //execute AsyncTask
+			                mPreLast = lastItem; //save pre position
+			              }
+			           }
+					break;
+
+				default:
+					break;
+				}
 				
+			}
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {				
 			}
 			
-			@Override
-			public void onScroll(AbsListView view, int firstVisibleItem,
-					int visibleItemCount, int totalItemCount) {
-				// TODO Auto-generated method stub
-				
-			}
 		});
 		
 	}
@@ -129,19 +119,18 @@ public class ListContactFragment extends Fragment {
  */
 class LoadingMoreListView extends AsyncTask<Void, Integer, Void>{
 	private ArrayList<ListContactClass> mListContacts;
-	private ListContactClass mListContact;	
 	@Override
 	protected Void doInBackground(Void... params) {
-		// TODO Auto-generated method stub
+	
 		try {
+			//Add Data to ArrayList
+			ApplicationData.addDataToArrayList(ListContactFragment.sListContacts);			
 			//VISIBLE Progress bar
 			ListContactFragment.sProgressBar.setVisibility(View.VISIBLE);
-			//Sleep 2s
-			Thread.sleep(2000);
-			//Add Data to ArrayList
-			ListContactFragment.addDataToArrayList(ListContactFragment.sListContacts);
+			//Sleep 4s
+			Thread.sleep(4000);
 			//INVISIBLE Progress bar
-			ListContactFragment.sProgressBar.setVisibility(View.INVISIBLE);
+			ListContactFragment.sProgressBar.setVisibility(View.INVISIBLE);			
 		}
 		catch (Exception e){}
 		
@@ -154,7 +143,7 @@ class LoadingMoreListView extends AsyncTask<Void, Integer, Void>{
 	@Override
 	protected void onPostExecute(Void result) {
 		// TODO Auto-generated method stub
-		super.onPostExecute(result);
+		super.onPostExecute(result);		
 		ListContactFragment.sAdapterListContact.notifyDataSetChanged();
 	}
 	

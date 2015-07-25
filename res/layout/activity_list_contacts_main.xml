@@ -14,9 +14,10 @@
             android:id="@+id/imgBtnBack"
             android:layout_width="52dp"
             android:layout_height="match_parent"
-            android:background="@color/color.nocolor"
-            android:padding="12dp"
-            android:src="@drawable/ic_list_contacts_btnback" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/selector_btn_back"
+            android:padding="10dp"
+            />
 
         <TextView
             android:id="@+id/tvTitle"
