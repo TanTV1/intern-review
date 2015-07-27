@@ -36,7 +36,6 @@ public class ListContactClass implements Serializable {
 		this.mListContacts = mListContacts;
 	}
 		
-
 	/**
 	 * TODO Contrustor of ListContactClass
 	 * 
@@ -91,6 +90,7 @@ public class ListContactClass implements Serializable {
 	public void setmName(String mName) {
 		this.mName = mName;
 	}
+	
 	/**
 	 * 
 	* TODO get position method
@@ -100,6 +100,7 @@ public class ListContactClass implements Serializable {
 	public int getPositon() {
 		return mPositon;
 	}
+	
 	/**
 	 * 
 	* TODO get position method
@@ -130,7 +131,6 @@ public class ListContactClass implements Serializable {
 		this.mListContacts = mListContacts;
 	}
 
-
 	/**
 	 * 
 	 * TODO get String decription
@@ -140,7 +140,6 @@ public class ListContactClass implements Serializable {
 	public String getmEdtDescription() {
 		return mEdtDescription;
 	}
-
 
 	/**
 	 * 
@@ -152,7 +151,4 @@ public class ListContactClass implements Serializable {
 	public void setmEdtDescription(String mEdtDescription) {
 		this.mEdtDescription = mEdtDescription;
 	}
-	
-	
-
 }

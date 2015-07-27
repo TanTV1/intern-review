@@ -10,6 +10,8 @@ import asiantech.vn.listcontact.ListContactClass;
 import asiantech.vn.v1.R;
 
 public class ApplicationData {
+	public static boolean sCheckingLoading = true; //Variable checking loading
+	
 	public static final int ID_NAME[] = { // set values id name
 			R.drawable.img_lv_avatar_1, R.drawable.img_lv_avatar_2,
 					R.drawable.img_lv_avatar_3, R.drawable.img_lv_avatar_4,

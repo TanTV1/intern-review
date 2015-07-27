@@ -51,7 +51,7 @@ public class EditContactFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_edit_contact, container,false);
-        MainActivity.sTvTitle.setText("Contacts"); //set Title
+        MainActivity.sTvTitle.setText("Contact"); //set Title
         
         // find id for avatar and id textview name
         mImgAvatar = (ImageView) mView.findViewById(R.id.imgAvatar);

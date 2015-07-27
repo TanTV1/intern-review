@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.TextView;
 import asiantech.vn.editcontact.EditContactFragment;
 import asiantech.vn.listcontact.ListContactClass;
 import asiantech.vn.listcontact.ListContactFragment;
@@ -29,7 +30,8 @@ public class MainActivity extends FragmentActivity {
 	private ImageView mImgBtnBack; // ImageView button black
 	public static FragmentManager sFragmentManager;
 	public static FragmentTransaction sFragmentTransaction;
-
+	public static TextView sTvTitle; //textview title
+	
 	/**
 	 * TODO The first function when activity starting, create a activity
 	 * 
@@ -41,11 +43,13 @@ public class MainActivity extends FragmentActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_contacts_main);
+		sTvTitle = (TextView)findViewById(R.id.tvTitle);				
 		sFragmentManager = getFragmentManager();
 		sFragmentTransaction = sFragmentManager.beginTransaction();
 		sFragmentTransaction.replace(R.id.frFragment, new ListContactFragment());
-		sFragmentTransaction.addToBackStack(null);
+		sFragmentTransaction.addToBackStack(null); //add to stack
 		sFragmentTransaction.commit();
+		//call method event on MainActivity
 		setOnEvent();
 
 	}
@@ -78,8 +82,10 @@ public class MainActivity extends FragmentActivity {
 		ListContactFragment.sAdapterListContact.notifyDataSetChanged();
 		if (sFragmentManager.getBackStackEntryCount() == 1) {
 			super.onBackPressed(); // exit application
+			
 		} else
 			sFragmentManager.popBackStackImmediate(); // return and pop stack
+			MainActivity.sTvTitle.setText("Contacts"); //set Title
 		
 	}
 
